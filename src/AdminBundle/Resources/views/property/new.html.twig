@@ -1,0 +1,32 @@
+{% extends '@Admin/property/layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Property creation</h4>
+            {#<p class="category">#}
+                {#You can manage as many center as you want, with the permission of the owner.#}
+                {#<br>#}
+                {#<a href="{{ path('property_new') }}">Create a new property</a>#}
+            {#</p>#}
+        </div>
+        <div class="content">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="footer text-center">
+                <input type="submit" value="Create" class="btn btn-info btn-fill btn-wd"/>
+                <a type="submit" value="Create" class="btn btn-warning btn-fill btn-wd">Cancel</a>
+
+
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    {% include '@Admin/property/common_form.html.twig' %}
+
+{% endblock %}

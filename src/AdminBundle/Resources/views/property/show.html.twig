@@ -1,0 +1,17 @@
+{% extends '@Admin/property/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {% include '@Admin/property/property_card.html.twig' with {'property':property} %}
+        </div>
+        <div class="col-md-6">
+            {% include '@Admin/components/card_description.html.twig' %}
+            {% include '@Admin/property/configuration.html.twig' %}
+            {% include "@Admin/components/todo_list.html.twig" %}
+
+        </div>
+    </div>
+
+{% endblock %}

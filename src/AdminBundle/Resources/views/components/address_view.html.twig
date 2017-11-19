@@ -1,0 +1,11 @@
+{# address \Spartan\Bundle\CoreBundle\Entity\Address #}
+
+{% if address.street is not empty and address.number is not empty %}
+    {{ address.number }} {{ address.street }} <br>
+{% endif %}
+{% if address.zipCode is not empty and address.city is not empty %}
+    {{ address.zipCode }} {{ address.city }} <br>
+{% endif %}
+{% if address.country is not empty %}
+    {{ address.country|country }}
+{% endif %}

@@ -1,0 +1,65 @@
+{% extends '@Admin/property/layout.html.twig' %}
+
+{% block body %}
+
+
+    <div class="card">
+        <div class="header">
+            <div class="pull-right">
+                <a class="btn btn-default" href="{{ path('property_new') }}">Create a new property</a>
+            </div>
+
+            <h4 class="title">Select a property</h4>
+            {#<p class="category">#}
+                {#You can manage as many center as you want, with the permission of the owner.#}
+                {#<br>#}
+                {#<a href="{{ path('property_new') }}">Create a new property</a>#}
+            {#</p>#}
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Picture</th>
+                    <th>Internal Name</th>
+                    <th>Price</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Descriptions</th>
+                    <th>Address</th>
+                    <th class="text-right">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for property in properties %}
+                    <tr>
+                        <td><a href="{{ path('property_show', { 'id': property.id }) }}">{{ property.id }}</a></td>
+                        <td>{{ property.internalName }}</td>
+                        <td>
+                            <img src="{{ property.picture }}" class="img-rounded" height="100px">
+                        </td>
+                        <td>{% include '@Admin/components/price.html.twig' with {'price':property.price} %}</td>
+                        <td>{% if property.created %}{{ property.created|date() }}{% endif %}</td>
+                        <td>{% if property.updated %}{{ property.updated|date() }}{% endif %}</td>
+                        <td>{{ property.descriptions }}</td>
+                        <td>Address todo</td>
+                        <td class="td-actions text-right">
+                            {#<a href="#" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Manage team">#}
+                                {#<i class="fa fa-user"></i>#}
+                            {#</a>#}
+                            <a href="{{ path('property_edit', {'id': property.id}) }}" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Edit property">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ path('property_show', {'id':property.id}) }}" rel="tooltip" title="" class="btn btn-success btn-simple btn-xs" data-original-title="Select this property">
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

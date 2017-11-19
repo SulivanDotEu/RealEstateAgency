@@ -1,0 +1,49 @@
+<ul class="nav">
+    <li class="">
+        <a href="#">
+            <i class="pe-7s-id"></i>
+            <p>Users</p>
+        </a>
+    </li>
+    <li class="{% if 'property_' in app.request.attributes.get('_route')  %}active{% endif %}">
+        <a href="{{ path('property_index') }}">
+            <i class="pe-7s-notebook"></i>
+            <p>Properties</p>
+        </a>
+    </li>
+    <li class="">
+        <a href="#">
+            <i class="pe-7s-arc"></i>
+            <p>Leads</p>
+        </a>
+    </li>
+    <li class="">
+        <a href="#">
+            <i class="pe-7s-speaker"></i>
+            <p>News</p>
+        </a>
+    </li>
+    <li class="">
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Google analytics</p>
+        </a>
+    </li>
+
+    <li>
+        <a data-toggle="collapse" href="#componentsExamples">
+            <i class="pe-7s-plugin"></i>
+            <p>Menu with links
+                <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse" id="componentsExamples">
+            <ul class="nav">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </div>
+    </li>
+
+</ul>

@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="header">
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{ path('property_new') }}">Edit this property</a>
+        </div>
+        <h4 class="title">Property "{{ property.internalName }}"</h4>
+        <p class="category">
+            {{ property.descriptions }}
+            <br>
+        </p>
+    </div>
+    <div class="content table-responsive table-full-width">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ property.id }}</td>
+            </tr>
+            <tr>
+                <th>Internal name</th>
+                <td>{{ property.internalName }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>
+                    <img src="{{ property.picture }}" class="img-rounded" height="150px">
+                </td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{% include '@Admin/components/price.html.twig' with {'price':property.price} %}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if property.created %}{{ property.created|date() }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if property.updated %}{{ property.updated|date() }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Descriptions</th>
+                <td>{{ property.descriptions }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>
+                    {% include '@Admin/components/address_view.html.twig' with {'address':property.address} %}
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <hr>
+        <div class="stats">
+            <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+    </div>
+</div>
